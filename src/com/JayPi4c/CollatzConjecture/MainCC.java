@@ -193,6 +193,8 @@ public class MainCC extends JFrame implements ActionListener, Runnable {
 			inputText.getParent().validate();
 			Error1.setVisible(false);
 			if (i == 1 || i == 0) {
+				parent.setVisible(true);
+				dispose();
 				Error1.setVisible(true);
 				i = 42;
 			}
