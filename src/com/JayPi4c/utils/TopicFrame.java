@@ -2,6 +2,7 @@ package com.JayPi4c.utils;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
@@ -30,11 +31,12 @@ public abstract class TopicFrame extends JFrame {
 		c.weightx = 0;
 		c.ipady = 0;
 		c.weighty = 0;
-		c.anchor = GridBagConstraints.PAGE_END;
+		// c.anchor = GridBagConstraints.PAGE_END;
 		c.gridx = 4;
 		c.gridy = 4;
 		c.gridwidth = 1;
 		c.gridheight = 1;
+		c.insets = new Insets(2, 2, 2, 2);
 
 		exit = new JButton("Exit");
 		exit.addActionListener(e -> {
@@ -44,11 +46,12 @@ public abstract class TopicFrame extends JFrame {
 		rootPanel.add(exit, c);
 
 		contentPanel = new JPanel();
-		c.fill = GridBagConstraints.HORIZONTAL;
+		c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;
 		c.gridy = 0;
 		c.gridwidth = 3;
 		c.gridheight = 4;
+		c.insets = new Insets(3, 3, 3, 0);
 
 		rootPanel.add(contentPanel, c);
 
@@ -82,13 +85,13 @@ public abstract class TopicFrame extends JFrame {
 
 			@Override
 			public void windowClosing(WindowEvent e) {
-
+				parent.setVisible(true);
+				dispose();
 			}
 
 			@Override
 			public void windowClosed(WindowEvent e) {
-				parent.setVisible(true);
-				dispose();
+
 			}
 
 			@Override
@@ -96,6 +99,7 @@ public abstract class TopicFrame extends JFrame {
 
 			}
 		});
+		setResizable(false);
 		setVisible(true);
 	}
 
