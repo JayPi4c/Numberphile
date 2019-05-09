@@ -100,6 +100,12 @@ public class CollatzConjectureCalculator extends Thread {
 		}
 	}
 
+	/**
+	 * Mache die essentielle Berechnung der Collatz Vermutung
+	 * 
+	 * @param i
+	 * @return
+	 */
 	private int calculate(int i) {
 		numberOfSteps++;
 		if (i % 2 == 0) {
